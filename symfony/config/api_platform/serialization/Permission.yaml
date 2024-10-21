@@ -1,0 +1,16 @@
+App\Entity\Permission:
+    attributes:
+        id:
+            groups:
+                - "permission:read"
+                - "assignation:read"
+                - "user:read"
+                - "chat:read"
+                - "permission:write"
+        type:
+            groups:
+                - "permission:read"
+                - "assignation:read"
+                - "user:read"
+                - "chat:read"
+                - "permission:write"

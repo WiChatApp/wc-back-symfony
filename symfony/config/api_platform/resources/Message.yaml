@@ -1,0 +1,16 @@
+App\Entity\Message:
+    normalizationContext:
+        groups:
+            - "message:read"
+    denormalizationContext:
+        groups:
+            - "message:write"
+    operations:
+        ApiPlatform\Metadata\GetCollection:
+            filters: ["message.search_filter"]
+        ApiPlatform\Metadata\Get: ~
+        ApiPlatform\Metadata\Post: ~
+        ApiPlatform\Metadata\Put: ~
+        ApiPlatform\Metadata\Delete: ~
+        ApiPlatform\Metadata\Patch: ~
+

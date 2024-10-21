@@ -1,0 +1,26 @@
+App\Entity\Message:
+    attributes:
+        id:
+            groups:
+                - "message:read"
+                - "chat:read"
+                - "message:write"
+        user:
+            groups:
+                - "message:read"
+                - "chat:read"
+                - "message:write"
+        content:
+            groups:
+                - "message:read"
+                - "chat:read"
+                - "message:write"
+        postDate:
+            groups:
+                - "message:read"
+                - "chat:read"
+                - "message:write"
+        chat:
+            groups:
+                - "message:read"
+                - "message:write"

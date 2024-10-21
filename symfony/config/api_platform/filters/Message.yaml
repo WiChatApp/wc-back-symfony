@@ -1,0 +1,5 @@
+services:
+    message.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { id: 'exact', content: 'partial', postDate: 'exact', chat: 'exact' } ]
+        tags:  [ 'api_platform.filter' ]

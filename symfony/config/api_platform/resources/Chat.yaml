@@ -1,0 +1,16 @@
+App\Entity\Chat:
+    normalizationContext:
+        groups:
+            - "chat:read"
+    denormalizationContext:
+        groups:
+            - "chat:write"
+    operations:
+        ApiPlatform\Metadata\GetCollection:
+            filters: ["chat.search_filter"]
+        ApiPlatform\Metadata\Get: ~
+        ApiPlatform\Metadata\Post: ~
+        ApiPlatform\Metadata\Put: ~
+        ApiPlatform\Metadata\Delete: ~
+        ApiPlatform\Metadata\Patch: ~
+

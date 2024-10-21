@@ -1,0 +1,12 @@
+App\Entity\Permission:
+    normalizationContext:
+        groups:
+            - "permission:read"
+    denormalizationContext:
+        groups:
+            - "permission:write"
+    operations:
+        ApiPlatform\Metadata\GetCollection:
+            filters: ["permission.search_filter"]
+        ApiPlatform\Metadata\Get: ~
+        # On ne souhaite pas permettre la création/modification/suppression de permissions
