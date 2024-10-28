@@ -1,0 +1,18 @@
+App\Entity\Status:
+    attributes:
+        id:
+            groups:
+                - "status:read"
+                - "user:read"
+                - "assignment:read"
+                - "chat:read"
+                - "message:read"
+                - "status:write"
+        description:
+            groups:
+                - "status:read"
+                - "user:read"
+                - "assignment:read"
+                - "chat:read"
+                - "message:read"
+                - "status:write"

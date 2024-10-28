@@ -1,0 +1,24 @@
+# Do not include the following files
+**/*.log*
+
+# MariaDB data
+.docker/mariadb/data/*
+# Composer console
+**/composer.phar
+**/composer.bat
+
+# Keep directories containing a .gitkeep file but not necessarily their content
+!**/.gitkeep
+
+# Ignore development environment files
+.vscode/*
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Keep recommended extensions
+!.vscode/extensions.json

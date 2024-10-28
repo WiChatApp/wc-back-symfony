@@ -1,0 +1,5 @@
+services:
+    assignment.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { id: 'exact', role: 'exact', permission: 'exact', chat: 'exact', user: 'exact' } ]
+        tags:  [ 'api_platform.filter' ]
