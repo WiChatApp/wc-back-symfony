@@ -1,0 +1,71 @@
+services:
+  wc-mariadb-s:
+    container_name: "wc-mariadb-c"
+    build:
+      context: ../
+      dockerfile: ".docker/mariadb/Dockerfile.prod"
+    env_file:
+      - "mariadb/.env.prod"
+    restart: always
+    networks:
+      - wc-back-network
+    ports:
+      - 3306:3306
+    volumes:
+      - wc-mariadb-data:/var/lib/mysql/
+
+  wc-adminer-s:
+    container_name: "wc-adminer-c"
+    image: adminer
+    env_file:
+      - "adminer/.env.prod"
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - wc-back-network
+    depends_on:
+      - wc-mariadb-s
+
+  wc-symfony-s:
+    container_name: "wc-symfony-c"
+    build:
+      context: ../
+      dockerfile: ".docker/symfony/Dockerfile.prod"
+    env_file:
+      - "mariadb/.env.prod"
+      - "symfony/.env.prod"
+    restart: always
+    ports:
+      - "9000:9000"
+    networks:
+      - wc-back-network
+    depends_on:
+      - wc-mariadb-s
+
+  wc-nginx-s:
+    container_name: "wc-nginx-c"
+    build:
+      context: ../
+      dockerfile: ".docker/nginx/Dockerfile.prod"
+    env_file:
+      - "nginx/.env.prod"
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - wc-back-network
+    depends_on:
+      - wc-symfony-s
+
+networks:
+  wc-back-network:
+    driver: bridge
+
+volumes:
+  wc-mariadb-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: "./mariadb/data/"
+      o: bind

@@ -1,0 +1,31 @@
+App\Entity\Assignment:
+    attributes:
+        id:
+            groups:
+                - "assignment:read"
+                - "user:read"
+                - "chat:read"
+                - "assignment:write"
+        role:
+            groups:
+                - "assignment:read"
+                - "user:read"
+                - "chat:read"
+                - "assignment:write"
+
+        permission:
+            groups:
+                - "assignment:read"
+                - "user:read"
+                - "chat:read"
+                - "assignment:write"
+        chat:
+            groups:
+                - "assignment:read"
+                - "user:read"
+                - "assignment:write"
+        user:
+            groups:
+                - "assignment:read"
+                - "chat:read"
+                - "assignment:write"

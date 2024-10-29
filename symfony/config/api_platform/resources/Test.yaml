@@ -1,0 +1,15 @@
+App\Entity\Test:
+    normalizationContext:
+        groups:
+            - "test:read"
+    denormalizationContext:
+        groups:
+            - "test:write"
+    operations:
+        ApiPlatform\Metadata\GetCollection:
+            filters: ["test.search_filter"]
+        ApiPlatform\Metadata\Get: ~
+        ApiPlatform\Metadata\Post: ~
+        ApiPlatform\Metadata\Put: ~
+        ApiPlatform\Metadata\Delete: ~
+        ApiPlatform\Metadata\Patch: ~

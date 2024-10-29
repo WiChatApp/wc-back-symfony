@@ -1,0 +1,38 @@
+App\Entity\User:
+    attributes:
+        id:
+            groups:
+                - "user:read"
+                - "assignment:read"
+                - "chat:read"
+                - "message:read"
+                - "user:write"
+        nickname:
+            groups:
+                - "user:read"
+                - "assignment:read"
+                - "chat:read"
+                - "message:read"
+                - "user:write"
+        password:
+            groups:
+                - "user:read"
+                - "user:write"
+        creationDate:
+            groups:
+                - "user:read"
+                - "assignment:read"
+                - "chat:read"
+                - "message:read"
+                - "user:write"
+        status:
+            groups:
+                - "user:read"
+                - "assignment:read"
+                - "chat:read"
+                - "message:read"
+                - "user:write"
+        assignments:
+            groups:
+                - "user:read"
+                - "user:write"

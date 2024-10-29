@@ -1,0 +1,16 @@
+App\Entity\Assignment:
+    normalizationContext:
+        groups:
+            - "assignment:read"
+    denormalizationContext:
+        groups:
+            - "assignment:write"
+    operations:
+        ApiPlatform\Metadata\GetCollection:
+            filters: ["assignment.search_filter"]
+        ApiPlatform\Metadata\Get: ~
+        ApiPlatform\Metadata\Post: ~
+        ApiPlatform\Metadata\Put: ~
+        ApiPlatform\Metadata\Delete: ~
+        ApiPlatform\Metadata\Patch: ~
+

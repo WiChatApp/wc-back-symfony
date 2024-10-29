@@ -1,0 +1,24 @@
+App\Entity\Chat:
+    attributes:
+        id:
+            groups:
+                - "chat:read"
+                - "assignment:read"
+                - "message:read"
+                - "user:read"
+                - "chat:write"
+        name:
+            groups:
+                - "chat:read"
+                - "assignment:read"
+                - "message:read"
+                - "user:read"
+                - "chat:write"
+        messages:
+            groups:
+                - "chat:read"
+                - "chat:write"
+        assignments:
+            groups:
+                - "chat:read"
+                - "chat:write"

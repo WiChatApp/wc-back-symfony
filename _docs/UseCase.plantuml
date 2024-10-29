@@ -1,0 +1,49 @@
+@startuml usecase
+left to right direction
+actor User as u
+actor Admin as a
+' -- Privilege inheritance
+u --|> a
+
+' -- Guest chat actions
+usecase "Register/Login" as EA1
+usecase "Create a chat" as EB2
+usecase "Join a chat" as EC3
+usecase "Display a chat" as EE5
+usecase "List chat members" as EH6
+usecase "Send a message" as EF7
+usecase "Receive a message" as EG7
+usecase "See if a member is online" as EK9
+
+' -- Admin actions
+usecase "Assign a role to a user" as AD4
+usecase "Mute a member" as AI8
+usecase "Remove a member from a chat" as AJ8
+
+' -- User actions
+' The user logs in
+u --> EA1
+' The user creates a chat
+EA1 --> EB2
+' The user joins a chat
+EA1 --> EC3
+' The user displays a chat
+EB2 --> EE5
+EC3 --> EE5
+' The user lists chat members
+EE5 --> EH6
+' The user sees if a member is online
+EE5 --> EK9
+' The user sends a message
+EE5 --> EF7
+' The user receives a message
+EE5 --> EG7
+
+' -- Admin actions
+' The admin assigns a role to a user
+a --> AD4
+' The admin mutes a member
+a --> AI8
+' The admin removes a member from a chat
+a --> AJ8
+@enduml

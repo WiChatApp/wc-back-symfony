@@ -1,0 +1,16 @@
+App\Entity\Role:
+    attributes:
+        id:
+            groups: 
+                - "role:read"
+                - "assignment:read"
+                - "user:read"
+                - "chat:read"
+                - "role:write"
+        name:
+            groups: 
+                - "role:read"
+                - "assignment:read"
+                - "user:read"
+                - "chat:read"
+                - "role:write"
