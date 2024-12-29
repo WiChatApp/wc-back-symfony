@@ -1,0 +1,10 @@
+App\Entity\Test:
+    attributes:
+        id:
+            groups:
+                - "test:read"
+                - "test:write"
+        testField:
+            groups:
+                - "test:read"
+                - "test:write"

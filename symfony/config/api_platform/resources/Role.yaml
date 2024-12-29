@@ -1,0 +1,12 @@
+App\Entity\Role:
+    normalizationContext:
+        groups:
+            - "role:read"
+    denormalizationContext:
+        groups:
+            - "role:write"
+    operations:
+        ApiPlatform\Metadata\GetCollection:
+            filters: ["role.search_filter"]
+        ApiPlatform\Metadata\Get: ~
+        # On ne souhaite pas permettre la création/modification/suppression de rôles

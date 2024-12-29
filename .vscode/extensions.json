@@ -1,0 +1,51 @@
+{
+	"recommendations": [
+		// -- Git
+		// Git Graph
+		"mhutchie.git-graph",
+		// GitLens
+		"eamodio.gitlens",
+		// GitLab Workflow
+		"GitLab.gitlab-workflow",
+
+		// -- Formatting
+		// Prettier
+		"esbenp.prettier-vscode",
+		// Formatting Toggle
+		"tombonnike.vscode-status-bar-format-toggle",
+
+		// -- Web
+		// HTML/CSS Support
+		"ecmel.vscode-html-css",
+		// PHP Intelephense
+		"bmewburn.vscode-intelephense-client",
+		// PHP IntelliSense
+		"zobo.php-intellisense",
+		// YAML
+		"redhat.vscode-yaml",
+		// Thunder Client (Rest API Client)
+		"rangav.vscode-thunder-client",
+
+		// -- Auto-complete
+		// GitHub Copilot
+		"GitHub.copilot",
+		// GitHub Chat
+		"GitHub.copilot-chat",
+		// IntelliCode API Usage Examples
+		"VisualStudioExptTeam.intellicode-api-usage-examples",
+		// IntelliCode Completions
+		"VisualStudioExptTeam.vscodeintellicode-completions",
+		// IntelliSense for CSS class names in HTML
+		"Zignd.html-css-class-completion",
+
+		// -- Markdown, Diagrams & Documentation
+		// Markdown All In One
+		"DavidAnson.vscode-markdownlint",
+		// markdownlint
+		"DavidAnson.vscode-markdownlint",
+		// PlantUML
+		"jebbs.plantuml",
+		// TODO Tree
+		"Gruntfuggly.todo-tree",
+	]
+}

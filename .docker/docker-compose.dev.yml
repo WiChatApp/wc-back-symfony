@@ -1,0 +1,85 @@
+services:
+  wc-mariadb-s:
+    container_name: "wc-mariadb-c"
+    build:
+      context: ../
+      dockerfile: ".docker/mariadb/Dockerfile.dev"
+    env_file:
+      - "mariadb/.env.dev"
+    restart: on-failure
+    volumes:
+      - type: bind
+        source: "mariadb/data/"
+        target: "/var/lib/mysql/"
+        # Only for MacOS
+        consistency: consistent
+      - type: bind
+        source: "mariadb/logs/"
+        target: "/var/log/mysql/"
+        consistency: consistent
+    networks:
+      - wc-back-network
+    ports:
+      - 3306:3306
+
+  wc-adminer-s:
+    container_name: "wc-adminer-c"
+    image: adminer
+    env_file:
+      - "adminer/.env.dev"
+    restart: on-failure
+    ports:
+      - 8080:8080
+    networks:
+      - wc-back-network
+    depends_on:
+      - wc-mariadb-s
+
+  wc-symfony-s:
+    container_name: "wc-symfony-c"
+    build:
+      context: ../
+      dockerfile: ".docker/symfony/Dockerfile.dev"
+    env_file:
+      - "mariadb/.env.dev"
+      - "symfony/.env.dev"
+    restart: on-failure
+    volumes:
+      - type: bind
+        source: "../symfony/src/"
+        target: "/var/www/html/src/"
+        consistency: consistent
+      - type: bind
+        source: "symfony/logs/"
+        target: "/var/log/php/"
+        consistency: consistent
+    ports:
+      - "9000:9000"
+    networks:
+      - wc-back-network
+    depends_on:
+      - wc-mariadb-s
+
+  wc-nginx-s:
+    container_name: "wc-nginx-c"
+    build:
+      context: ../
+      dockerfile: ".docker/nginx/Dockerfile.dev"
+    env_file:
+      - "nginx/.env.dev"
+    restart: on-failure
+    volumes:
+      - type: bind
+        source: "nginx/logs/"
+        target: "/var/log/nginx/"
+        consistency: consistent
+    ports:
+      - "80:80"
+    networks:
+      - wc-back-network
+    depends_on:
+      - wc-symfony-s
+
+networks:
+  wc-back-network:
+    driver: bridge

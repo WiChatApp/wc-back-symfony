@@ -1,0 +1,13 @@
+App\Entity\Status:
+    normalizationContext:
+        groups:
+            - "status:read"
+    denormalizationContext:
+        groups:
+            - "status:write"
+    operations:
+        ApiPlatform\Metadata\GetCollection:
+            filters: ["status.search_filter"]
+        ApiPlatform\Metadata\Get: ~
+        # On ne souhaite pas permettre la création/modification/suppression de statuts
+

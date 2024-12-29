@@ -1,0 +1,5 @@
+services:
+    permission.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { id: 'exact', type: 'partial' } ]
+        tags:  [ 'api_platform.filter' ]

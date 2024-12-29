@@ -1,0 +1,5 @@
+services:
+    user.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { id: 'exact', nickname: 'partial', password: 'exact', creationDate: 'exact', status: 'exact'} ]
+        tags:  [ 'api_platform.filter' ]

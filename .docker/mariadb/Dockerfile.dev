@@ -1,0 +1,14 @@
+FROM mariadb:latest
+
+# Set the working directory
+WORKDIR /etc/mysql/
+
+# Copy MariaDB configuration files
+COPY .docker/mariadb/conf/ ./
+
+# my.cnf is a symbolic link pointing to the mariadb.cnf configuration file
+# Configurations will be ignored if permissions are too permissive
+RUN chmod 644 /etc/mysql/my.cnf
+
+# Make the application accessible on port 3306
+EXPOSE 3306
